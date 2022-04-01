@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-app.set("view engine", "ejs");
+
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -30,7 +30,7 @@ const UserDB = mongoose.model("UserDB", userSchema);
 app.get("/bookings", function(req, res){
     UserDB.find(function(err, foundUsers){
         if(!err){
-            res.send(foundUsers);;
+            res.send(foundUsers);
         }
         else{
             res.send(err);
@@ -93,7 +93,7 @@ app.delete("/cancelBooking", function(req, res){
 let port = process.env.PORT;
 if(port == null || port == ""){
     port = 3000;
-} 
+}
 
 app.listen(port, function(){
     console.log("Server started on port 3000.");
